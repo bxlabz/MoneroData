@@ -1,0 +1,54 @@
+import requests
+from datetime import datetime
+import time
+
+WALLET_ADDRESS = "4B4RSqqyoMQBNSnfTkWPFVTMVHzBGoY5WRn7BobfY1Myid5p6HaszDs7nyGVVNHGRTMh6HmFwxZMYR5Hc83frXULS1UfChC"
+API_MAIN = f"https://api.moneroocean.stream/miner/{WALLET_ADDRESS}/stats"
+API_WORKERS = f"https://api.moneroocean.stream/miner/{WALLET_ADDRESS}/stats/allWorkers"
+LOG_FILE = "XRMlog.txt"
+
+def fetch_data():
+    try:
+        main_stats = requests.get(API_MAIN).json()
+        worker_stats = requests.get(API_WORKERS).json()
+        return main_stats, worker_stats
+    except requests.RequestException as e:
+        print(f"[ERROR] API fetch failed: {e}")
+        return None, None
+
+def log_data(main_data, worker_data):
+    timestamp = datetime.now().isoformat()
+
+    # Main stats
+    dash_due = main_data.get("amtDue", 0)
+    hashrate = main_data.get("hash", 0)
+    amtpd = main_data.get("amtPaid",0)
+    dash_due_xmr = dash_due / 1e12
+    hashrate_khs = hashrate / 1000
+    total_amtpd = amtpd / 1e12
+    
+    # Worker stats
+    workers = worker_data if isinstance(worker_data, dict) else {}
+    worker_count = len(workers)-1 
+    total_hashes = workers.get("global", {}).get("hash",0)
+    total_hashrate_khs = total_hashes / 1000
+
+    log_line = (
+        f"{timestamp} | AmtDue: {dash_due_xmr:.6f} XMR | Hashrate: {hashrate_khs:.2f} kH/s | "
+        f"MinerWorkerCount: {worker_count} | MinerHashes: {total_hashrate_khs:.2f} kH/s |"
+        f"AmtPaid: {total_amtpd:.6f}\n"
+    )
+
+    with open(LOG_FILE, "a") as file:
+        file.write(log_line)
+        print("[LOGGED]", log_line.strip())
+
+def main():
+    while True:
+        main_data, worker_data = fetch_data()
+        if main_data and worker_data:
+            log_data(main_data, worker_data)
+        time.sleep(1800)
+ 
+if __name__ == "__main__":
+    main()
