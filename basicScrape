@@ -44,10 +44,25 @@ def log_data(main_data, worker_data):
         print("[LOGGED]", log_line.strip())
 
 def main():
-    while True:
+   last_amt_paid = 0.343470
+while True:
         main_data, worker_data = fetch_data()
         if main_data and worker_data:
+            amt_paid = main_data.get("amtPaid", 0)
+
+            # Check for payout increase
+            if amt_paid > last_amt_paid:
+                paid_diff = (amt_paid - last_amt_paid) / 1e12
+                timestamp = datetime.now().isoformat()
+                special_line = f"{timestamp} | 💸 Payout Detected! New Payment: +{paid_diff:.6f} XMR\n"
+                with open(LOG_FILE, "a") as file:
+                    file.write(special_line)
+                    print("[PAYOUT]", special_line.strip())
+
+            last_amt_paid = amt_paid  # Update the stored value
+
             log_data(main_data, worker_data)
+
         time.sleep(1800)
  
 if __name__ == "__main__":
