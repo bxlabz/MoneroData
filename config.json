@@ -1,0 +1,6 @@
+{
+  "wallet_address": "4B4RSqqyoMQBNSnfTkWPFVTMVHzBGoY5WRn7BobfY1Myid5p6HaszDs7nyGVVNHGRTMh6HmFwxZMYR5Hc83frXULS1UfChC",
+  "discord_webhook": "https://discordapp.com/api/webhooks/1380302841411014768/fOV3e5Y-dES3VWCWgkmNrjbe7myYK7gEZ_b4O3GM9OO6LTXwxmTRPsigKQ3x1yqzqpuF",
+  "log_file": "XRMlog.txt",
+  "poll_interval_seconds": 1800
+}

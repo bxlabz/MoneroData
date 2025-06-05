@@ -81,3 +81,8 @@
 2025-06-05T16:04:08.335471 | AmtDue: 0.015327 XMR | Hashrate: 33.64 kH/s | MinerWorkerCount: 4 | MinerHashes: 33.64 kH/s |AmtPaid: 0.343470
 2025-06-05T16:34:09.281724 | AmtDue: 0.015327 XMR | Hashrate: 21.77 kH/s | MinerWorkerCount: 4 | MinerHashes: 21.77 kH/s |AmtPaid: 0.343470
 2025-06-05T16:47:33.080827 | AmtDue: 0.015327 XMR | Hashrate: 17.41 kH/s | MinerWorkerCount: 4 | MinerHashes: 17.41 kH/s |AmtPaid: 0.343470
+2025-06-05T17:31:10.176194 | Payout Detected! New payment: +0.343470 XMR
+2025-06-05T17:31:10.368314 | AmtDue:   0.015528 XMR | Hashrate:  25.87 kH/s | MinerWorkerCount:  4 | MinerHashes:   25.87 kH/s | AmtPaid:   0.343470 XMR
+2025-06-05T17:31:57.760709 | Payout Detected! New payment: +0.343470 XMR
+2025-06-05T17:31:58.064756 | AmtDue:   0.015528 XMR | Hashrate:  29.29 kH/s | MinerWorkerCount:  4 | MinerHashes:   29.29 kH/s | AmtPaid:   0.343470 XMR
+2025-06-05T18:01:58.782730 | AmtDue:   0.015730 XMR | Hashrate:  34.56 kH/s | MinerWorkerCount:  4 | MinerHashes:   34.56 kH/s | AmtPaid:   0.343470 XMR
