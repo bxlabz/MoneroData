@@ -76,7 +76,7 @@ def main():
     config = load_config()
     wallet = config["wallet_address"]
     webhook = config["discord_webhook"]
-    log_file = config.get("log_file", "XRMlog.txt")
+    log_file = config.get("log_file", "ssXRMlog.txt")
     poll_interval = config.get("poll_interval_seconds", 1800)
 
     logger = setup_logger(log_file)
