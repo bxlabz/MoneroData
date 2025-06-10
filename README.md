@@ -66,6 +66,24 @@ You’ll see a table of the most recent 50 log entries.
 🧪 Example Log Output
 2025-06-09T15:40:36 | AmtDue:   0.005914 XMR | Hashrate:  22.70 kH/s | MinerWorkerCount:  2 | MinerHashes:   45.40 kH/s | AmtPaid:   0.012000 XMR
 
+Running Dashboard in Virtual Python Env
+
+# 1. Install venv if not already installed
+sudo apt install python3-venv -y
+
+# 2. Create a virtual environment in your project folder
+python3 -m venv venv
+
+# 3. Activate the virtual environment
+source venv/bin/activate
+
+# 4. Now install your packages safely
+pip install flask requests
+
+#5 Deactivate even
+deactivate
+
+
 📌 Future Plans
 📈 Plot charts for hashrate & payout history
 
