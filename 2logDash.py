@@ -74,7 +74,7 @@ def parse_log():
 
 def compute_amt_due_deltas(entries):
     now = datetime.now()
-    windows = [6, 12, 24, 48]  # hours
+    windows = [24]  # hours
     results = {}
     for hours in windows:
         cutoff = now - timedelta(hours=hours)
